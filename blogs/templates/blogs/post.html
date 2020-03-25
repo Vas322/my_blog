@@ -1,0 +1,27 @@
+{% extends 'blogs/base.html' %}
+{% block header %}
+  <h2>Пост: {{ post }}</h2>
+{% endblock header %}
+{% block content %}
+  <p>
+	<a href="{% url 'blogs:new_entry' post.id %}">Добавить новую запись</a>
+  </p>
+  {% for entry in entries %}
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3>
+			{{ entry.date_added|date:'M d, Y H:i' }}
+				<small>
+					<a href="{% url 'blogs:edit_entry' entry.id %}">Редактировать запись</a>
+				</small>
+			</h3>
+		</div>
+		<div class="panel-body">
+			{{ entry.text|linebreaks }}
+		</div>
+	</div> <!-- panel -->
+	{% empty %}
+		У тебя еще нет записей в этом посте
+	{% endfor %}
+{% endblock content %}
+

@@ -1,0 +1,16 @@
+{% extends "blogs/base.html" %}
+{% load bootstrap3 %}
+{% block header %}
+  <h2>Новая запись</h2>
+{% endblock header %}
+{% block content %}
+  <p><a href="{% url 'blogs:post' post.id %}">{{ topic }}</a></p>
+  <p>Добавить новую запись:</p>
+  <form action="{% url 'blogs:new_entry' post.id %}" method='post'>
+	{% csrf_token %}
+	{% bootstrap_form form %}
+	{% buttons %}
+	  <button name="submit" class="btn btn-primary">Добавить запись</button>
+	{% endbuttons %}
+  </form>
+{% endblock content %}
