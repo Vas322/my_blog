@@ -10,8 +10,9 @@ class Post(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
     class Meta:
-        """Атрибут, позволяющий использовать форму множественного числа 'post' """
-        verbose_name_plural = 'posts'
+        """Атрибут, позволяющий использовать форму в том виде, как написано ниже """
+        verbose_name = 'Пост'
+        verbose_name_plural = 'Посты'
 
     def __str__(self):
         """Возвращает строковое представление модели."""
@@ -25,8 +26,9 @@ class Entry(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        """Атрибут, позволяющий использовать форму множественного числа 'Entries' """
-        verbose_name_plural = 'entries'
+        """Атрибут, позволяющий использовать форму в том виде, как написано ниже  """
+        verbose_name = 'запись'
+        verbose_name_plural = 'записи'
 
     def __str__(self):
         """Возвращает строковое представление модели."""
